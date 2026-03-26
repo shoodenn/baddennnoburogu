@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ばっでんが残したブログ</title>
+<style>
+body {
+    font-family: sans-serif;
+    max-width: 700px;
+    margin: 60px auto;
+    line-height: 1.8;
+}
+h1 {
+    text-align: center;
+}
+.article {
+    margin-bottom: 25px;
+}
+.date {
+    font-size: 0.9em;
+    color: gray;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    text-decoration: underline;
+}
+</style>
+</head>
+<body>
+
+<h1>ばっでんが残したブログ</h1>
+<hr>
+
+<div id="articles"></div>
+
+<script>
+fetch("posts.json")
+  .then(response => response.json())
+  .then(posts => {
+    const container = document.getElementById("articles");
+
+    // 日付が新しい順に並べる
+    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    posts.forEach(post => {
+      const div = document.createElement("div");
+      div.className = "article";
+      div.innerHTML = `
+        <a href="posts/${post.file}">
+          <strong>${post.title}</strong>
+        </a>
+        <div class="date">${post.date}</div>
+      `;
+      container.appendChild(div);
+    });
+  });
+</script>
+
+</body>
+</html>
