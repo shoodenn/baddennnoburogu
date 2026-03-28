@@ -3,61 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>ばっでんが残したブログ</title>
-<style>
-body {
-    font-family: sans-serif;
-    max-width: 700px;
-    margin: 60px auto;
-    line-height: 1.8;
-}
-h1 {
-    text-align: center;
-}
-.article {
-    margin-bottom: 25px;
-}
-.date {
-    font-size: 0.9em;
-    color: gray;
-}
-a {
-    text-decoration: none;
-    color: black;
-}
-a:hover {
-    text-decoration: underline;
-}
-</style>
-</head>
-<body>
-
-<h1>ばっでんが残したブログ</h1>
-<hr>
-
-<div id="articles"></div>
-
-<script>
-fetch("posts.json")
-  .then(response => response.json())
-  .then(posts => {
-    const container = document.getElementById("articles");
-
-    // 日付が新しい順に並べる
-    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-    posts.forEach(post => {
-      const div = document.createElement("div");
-      div.className = "article";
-      div.innerHTML = `
-        <a href="posts/${post.file}">
-          <strong>${post.title}</strong>
-        </a>
-        <div class="date">${post.date}</div>
-      `;
-      container.appendChild(div);
-    });
-  });
-</script>
-
-</body>
+<a href="https://shoodenn.github.io/baddennnoburogu/posts/guamu.html">記事</a><br>
+<a href="https://shoodenn.github.io/baddennnoburogu/posts/gu2.html">記事</a><br>
+<a href="https://shoodenn.github.io/baddennnoburogu/posts/gu3.html">記事</a><br>
+<a href="https://shoodenn.github.io/baddennnoburogu/posts/gu4.html">記事</a><br>
+<a href="https://shoodenn.github.io/baddennnoburogu/posts/gu2-2.html">記事</a><br>
+<a href="https://shoodenn.github.io/baddennnoburogu/posts/guamu2.html">記事</a><br>
 </html>
